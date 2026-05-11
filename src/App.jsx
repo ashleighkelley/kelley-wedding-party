@@ -395,7 +395,7 @@ function Nav({ page, setPage }) {
   return (
     <nav className="nav">
       <button className={`nav-link${page === "home" ? " active" : ""}`} onClick={() => setPage("home")}>Home</button>
-      <img src="/Luna.png" alt="Luna" className="nav-monogram" />
+      <img src="/kelley-wedding-party/Luna.png" alt="Luna" className="nav-monogram" />
       <button className={`nav-link${page === "faq" ? " active" : ""}`} onClick={() => setPage("faq")}>FAQ</button>
     </nav>
   );
@@ -424,8 +424,8 @@ function HomePage({ setPage }) {
         <span className="choose-tag">Select below to fill out a quick questionnaire</span>
         <div className="bride-cards">
           {[
-            { name: "Ashleigh", gradient: "linear-gradient(145deg, #F4D7DD, #D8C7F0)", image: "/Ash.jpg" },
-            { name: "Sarah", gradient: "linear-gradient(145deg, #C9DDF2, #AFC4B0)", image: "/Sarah.jpg" },
+            { name: "Ashleigh", gradient: "linear-gradient(145deg, #F4D7DD, #D8C7F0)", image: "/kelley-wedding-party/Ash.jpg" },
+            { name: "Sarah", gradient: "linear-gradient(145deg, #C9DDF2, #AFC4B0)", image: "/kelley-wedding-party/Sarah.jpg" },
           ].map((bride, i) => (
             <a
               key={i}
