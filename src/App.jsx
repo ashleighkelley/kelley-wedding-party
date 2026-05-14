@@ -366,7 +366,7 @@ const globalStyles = `
     top: 50%;
     transform: translateY(-50%);
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     gap: 0.5rem;
     opacity: 0.7;
   }
@@ -375,7 +375,7 @@ const globalStyles = `
 
   .footer-luna p {
     font-family: 'Great Vibes', cursive;
-    font-size: 1.1rem;
+    font-size: 0.5rem;
     color: #BDA8C7;
     margin: 0;
   }
