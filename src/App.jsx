@@ -19,6 +19,7 @@ const globalStyles = `
     font-family: 'Jost', sans-serif;
     font-weight: 300;
     color: #5a4f5e;
+    padding-top: 6.2rem;
   }
 
   @keyframes fadeUp {
@@ -89,9 +90,9 @@ const globalStyles = `
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     text-align: center;
-    padding: 10rem 2rem 4rem;
+    padding: 4rem 2rem 4rem;
     position: relative;
     overflow: hidden;
     background:
@@ -287,12 +288,12 @@ const globalStyles = `
 
   /* FAQ PAGE */
   .faq-hero {
-    min-height: 20vh;
+    min-height: 15vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    padding: 5rem 2rem 1.5rem;
+    padding: 1rem 2rem 1rem;
     text-align: center;
     background:
       radial-gradient(ellipse at 50% 0%, rgba(201,221,242,0.4) 0%, transparent 60%),
@@ -356,6 +357,27 @@ const globalStyles = `
     color: #BDA8C7;
     opacity: 0.7;
     border-top: 1px solid rgba(189,168,199,0.2);
+    position: relative;
+  }
+
+  .footer-luna {
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0.7;
+  }
+
+  .footer-luna img { height: 3rem; }
+
+  .footer-luna p {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.1rem;
+    color: #BDA8C7;
+    margin: 0;
   }
 `;
 
@@ -383,19 +405,19 @@ const FloralPetals = () => (
 );
 
 const faqs = [
-  { q: "What does being in the wedding party involve?", a: "You'll stand by our sides on the big day, join us for pre-wedding events, and help us celebrate one of the most special days of our lives. We'll share all the details with you!" },
-  { q: "What should I wear?", a: "We'll coordinate attire together! Once you say yes, we'll share color palettes and style guides. We want everyone to feel beautiful and comfortable." },
-  { q: "Will there be a rehearsal?", a: "Yes! A rehearsal dinner the evening before the ceremony. We'll give you all the details well in advance so you can plan around it." },
-  { q: "What if I can't afford the expenses?", a: "Please talk to us! We never want finances to be a barrier. We'll work something out together — your presence is what matters most to us." },
+  { q: "You're getting MARRIED?! When?? Where???", a: "You mean to tell me you don't already have an event on your calendar for May 1st, 2027 at the Tampa Garden Club?" },
+  { q: "What does being in the wedding party involve?", a: "We're low maintenance, the expectations aren't crazy. You'll be invited to a bachelorette party. On the big day we'd love to spend the morning getting ready with you, offer exclusive seating at the ceremony, etc. Think of it as the VIP experience at our wedding." },
+  { q: "What should I wear?", a: "We're still thinking this over and will offer some guidance asap! You look your best when you feel your best, so it's important to us that everyone is comfortable in their attire." },
+  { q: "Will there be a rehearsal?", a: "Yes! There will be a rehearsal dinner the evening before the ceremony. We'll share the details as soon as possible." },
+  { q: "What if I'm busy/broke/baby?", a: "We understand that almost none of you live in the Tampa area and will have to travel. Don't overextend yourselves! If you can't be there for the wedding weekend at a minimum, please let us know asap!" },
   { q: "When do I need to respond?", a: "We'd love to hear from you within a few weeks of receiving this invitation. Fill out the form linked on the home page, or just reach out to us directly!" },
-  { q: "Can I bring a plus one?", a: "We'll be sharing invitation details including plus-one info closer to the date. Stay tuned — we want to celebrate with all the people you love too." },
 ];
 
 function Nav({ page, setPage }) {
   return (
     <nav className="nav">
       <button className={`nav-link${page === "home" ? " active" : ""}`} onClick={() => setPage("home")}>Home</button>
-      <img src="/kelley-wedding-party/Luna.png" alt="Luna" className="nav-monogram" />
+      <img src="/kelley-wedding-party/kelleys.png" alt="The Kelleys" className="nav-monogram" />
       <button className={`nav-link${page === "faq" ? " active" : ""}`} onClick={() => setPage("faq")}>FAQ</button>
     </nav>
   );
@@ -416,12 +438,16 @@ function HomePage({ setPage }) {
         <p className="hero-blurb fade-up delay-4">
           It would be the greatest honor of our hearts to have you beside us as we begin this beautiful new chapter. You've walked with us through so much — and now we'd love nothing more than to have you there when it all begins.
         </p>
+        <br/><br/>
+        <p className="hero-blurb fade-up delay-4">
+          Keep this link handy, it may prove useful for future updates!
+        </p>
       </section>
 
       <section className="section">
-        <span className="section-label">Step One</span>
-        <h2 className="section-title">Choose your bride</h2>
-        <span className="choose-tag">Select below to fill out a quick questionnaire</span>
+        <span className="section-label">Hope you said yes...</span>
+        <h2 className="section-title">Now let's get started! Choose your bride:</h2>
+        <span className="choose-tag">Select a photo below to fill out a quick questionnaire</span>
         <div className="bride-cards">
           {[
             { name: "Ashleigh", gradient: "linear-gradient(145deg, #F4D7DD, #D8C7F0)", image: "/kelley-wedding-party/Ash.jpg" },
@@ -442,13 +468,25 @@ function HomePage({ setPage }) {
         </div>
       </section>
 
-      <div className="faq-link-wrap">
-        <button className="faq-link-btn" onClick={() => setPage("faq")}>
-          <span>✦</span> Questions? Visit our FAQ <span>✦</span>
-        </button>
-      </div>
+      <section className="section">
+        <h2 className="section-title">That's all we need from you right now, thanks!</h2>
+        <span className="section-label">In the meantime, have any questions for us?</span>
 
-      <footer>with love, Ashleigh + Sarah</footer>
+        <div className="faq-link-wrap">
+          <button className="faq-link-btn" onClick={() => setPage("faq")}>
+            <span>✦</span> Visit our info page <span>✦</span>
+          </button>
+        </div>
+      </section>
+      
+
+      <footer>
+        with love, Ashleigh + Sarah
+        <div className="footer-luna">
+          <p>(and Luna)</p>
+          <img src="/kelley-wedding-party/Luna.png" alt="Luna" />
+        </div>
+      </footer>
     </div>
   );
 }
@@ -457,7 +495,7 @@ function FAQPage() {
   return (
     <div>
       <div className="faq-hero">
-        <p className="hero-subtitle fade-up" style={{marginBottom: '0.5rem'}}>Here's everything you need to know</p>
+        <p className="hero-subtitle fade-up" style={{marginBottom: '0.5rem'}}>Here's everything you need to know (so far)</p>
         <h1 className="hero-title fade-up delay-1" style={{ fontSize: "clamp(2.5rem, 7vw, 5rem)", marginBottom: '0.8rem' }}>
           Info
         </h1>
@@ -482,7 +520,13 @@ function FAQPage() {
         ))}
       </div>
 
-      <footer>with love</footer>
+      <footer>
+        with love, Ashleigh + Sarah
+        <div className="footer-luna">
+          <p>(and Luna)</p>
+          <img src="/kelley-wedding-party/Luna.png" alt="Luna" />
+        </div>
+      </footer>
     </div>
   );
 }
