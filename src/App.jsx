@@ -410,15 +410,16 @@ const faqs = [
   { q: "What should I wear?", a: "We're still thinking this over and will offer some guidance asap! You look your best when you feel your best, so it's important to us that everyone is comfortable in their attire." },
   { q: "Will there be a rehearsal?", a: "Yes! There will be a rehearsal dinner the evening before the ceremony. We'll share the details as soon as possible." },
   { q: "What if I'm busy/broke/baby?", a: "We understand that almost none of you live in the Tampa area and will have to travel. Don't overextend yourselves! If you can't be there for the wedding weekend at a minimum, please let us know asap!" },
-  { q: "When do I need to respond?", a: "We'd love to hear from you within a few weeks of receiving this invitation. Fill out the form linked on the home page, or just reach out to us directly!" },
+  { q: "When do I need to respond?", a: "Please fill out the form linked to our photo on the home page ASAP so we can plan accordingly, with plenty of notice. Feel free to reach out to us directly with any questions/concerns." },
 ];
 
 function Nav({ page, setPage }) {
   return (
     <nav className="nav">
-      <button className={`nav-link${page === "home" ? " active" : ""}`} onClick={() => setPage("home")}>Home</button>
+      <button className={`nav-link${page === "home" ? " active" : ""}`} onClick={() => { setPage("home"); window.scrollTo(0, 0); }}>Home</button>
       <img src="/kelley-wedding-party/kelleys.png" alt="The Kelleys" className="nav-monogram" />
-      <button className={`nav-link${page === "faq" ? " active" : ""}`} onClick={() => setPage("faq")}>FAQ</button>
+      <button className={`nav-link${page === "faq" ? " active" : ""}`} onClick={() => { setPage("faq"); window.scrollTo(0, 0); }}>FAQ</button>
+      <a className="nav-link" href="https://www.zola.com/wedding/ashleighandsarah" target="_blank" rel="noopener noreferrer">Our Website</a>
     </nav>
   );
 }
@@ -436,7 +437,7 @@ function HomePage({ setPage }) {
           <span className="divider-line"></span>
         </div>
         <p className="hero-blurb fade-up delay-4">
-          It would be the greatest honor of our hearts to have you beside us as we begin this beautiful new chapter. You've walked with us through so much — and now we'd love nothing more than to have you there when it all begins.
+          We’ve laughed together, cried together, and made plenty of questionable decisions together...  Now we are starting our next big adventure, and would love for you to be part of it.
         </p>
         <br/><br/>
         <p className="hero-blurb fade-up delay-4">
@@ -450,12 +451,12 @@ function HomePage({ setPage }) {
         <span className="choose-tag">Select a photo below to fill out a quick questionnaire</span>
         <div className="bride-cards">
           {[
-            { name: "Ashleigh", gradient: "linear-gradient(145deg, #F4D7DD, #D8C7F0)", image: "/kelley-wedding-party/Ash.jpg" },
-            { name: "Sarah", gradient: "linear-gradient(145deg, #C9DDF2, #AFC4B0)", image: "/kelley-wedding-party/Sarah.jpg" },
+            { name: "Ashleigh", gradient: "linear-gradient(145deg, #F4D7DD, #D8C7F0)", image: "/kelley-wedding-party/Ash.jpg", href: "https://forms.gle/QqKcPN6MP2JL843X9" },
+            { name: "Sarah", gradient: "linear-gradient(145deg, #C9DDF2, #AFC4B0)", image: "/kelley-wedding-party/Sarah.jpg", href: "https://forms.gle/7bfL7fzUKouFH9jU8" },
           ].map((bride, i) => (
             <a
               key={i}
-              href="https://forms.gle/6CG49DcpABydxT6f6"
+              href={bride.href}
               target="_blank"
               rel="noopener noreferrer"
               className="bride-card"
@@ -473,7 +474,7 @@ function HomePage({ setPage }) {
         <span className="section-label">In the meantime, have any questions for us?</span>
 
         <div className="faq-link-wrap">
-          <button className="faq-link-btn" onClick={() => setPage("faq")}>
+          <button className="faq-link-btn" onClick={() => { setPage("faq"); window.scrollTo(0, 0); }}>
             <span>✦</span> Visit our info page <span>✦</span>
           </button>
         </div>
